@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask groundMask;
 
     CharacterController controller;
+    Vector3 velocity;
     Vector3 move;
     float x = 0;
     float z = 0;
@@ -24,7 +25,17 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        Ground();
         Move();
+        Fall();
+    }
+
+    void Ground()
+    {
+        if (CheckGrounded() && velocity.y < 0)
+        {
+            velocity.y = -2f;
+        }
     }
 
     void Move()
@@ -36,9 +47,23 @@ public class PlayerMovement : MonoBehaviour
         controller.Move(move * speed * Time.deltaTime);
     }
 
-    public void JumpInput() 
+    void Fall()
     {
-        Debug.Log("I am jumping!");
+        velocity.y += gravity * Time.deltaTime;
+        controller.Move(velocity * Time.deltaTime);
+    }
+
+    public void JumpInput()
+    {
+        Jump();
+    }
+
+    void Jump()
+    {
+        if (CheckGrounded())
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+        }
     }
 
     public bool CheckGrounded()
