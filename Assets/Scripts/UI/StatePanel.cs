@@ -8,6 +8,18 @@ public class StatePanel : MonoBehaviour
 
     Animator anim;
 
+    void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     void Start()
     {
         anim = GetComponent<Animator>();
