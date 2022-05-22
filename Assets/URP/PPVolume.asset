@@ -1,5 +1,28 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5937307820180392512
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e50bc0ff605a8d547823758f79692419, type: 3}
+  m_Name: Pixelation
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  widthPixelation:
+    m_OverrideState: 0
+    m_Value: 512
+  heightPixelation:
+    m_OverrideState: 0
+    m_Value: 512
+  colorPrecision:
+    m_OverrideState: 1
+    m_Value: 32
 --- !u!114 &-1710019246339669586
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -53,6 +76,7 @@ MonoBehaviour:
   - {fileID: -1710019246339669586}
   - {fileID: 1783707472583901919}
   - {fileID: 5119812442350163398}
+  - {fileID: -5937307820180392512}
 --- !u!114 &1783707472583901919
 MonoBehaviour:
   m_ObjectHideFlags: 3
