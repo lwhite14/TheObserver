@@ -338,7 +338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gravity: -19.81
   jumpHeight: 1.2
-  speed: 5
+  speed: 4
   movementSliding: 8
   groundCheck: {fileID: 8719801773627636459}
   groundDistance: 0.2

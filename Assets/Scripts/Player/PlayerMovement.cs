@@ -44,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
         {
             move = transform.right * x + transform.forward * z;
         }
+        move = Vector3.ClampMagnitude(move, 1.0f);
         controller.Move(move * speed * Time.deltaTime);
     }
 
