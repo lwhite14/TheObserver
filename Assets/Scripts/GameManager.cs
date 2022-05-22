@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
+
+    public int level = 0;
 
     void Awake()
     {
@@ -18,10 +21,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
     void Start()
     {
         CursorMode();
+    }
+
+    public void Restart() 
+    {
+        string sceneToLoad = "Level" + level;
+        SceneManager.LoadScene(sceneToLoad);
     }
 
     void CursorMode()
