@@ -54,6 +54,7 @@ class TVJumpScare : MonoBehaviour
     public void JumpScare(Trigger trigger)
     {
         Instantiate(sound);
+        Viewmodel.instance.Disappear();
         StartCoroutine(DisplayOverlay(trigger));
     }
 
@@ -65,6 +66,9 @@ class TVJumpScare : MonoBehaviour
 
         // Change TV
         tvMeshRenderer.material = staticMaterial;
+
+        // Set Viewmodel
+        Viewmodel.instance.Appear();
 
         // Open Next Area
 
