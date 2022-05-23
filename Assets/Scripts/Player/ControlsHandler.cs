@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -23,7 +24,10 @@ public class ControlsHandler : MonoBehaviour
 
         controls.Player.Jump.performed += JumpPerformed;
         controls.Player.Jump.Enable();
+        controls.UI.Start.performed += StartPerformed;
+        controls.UI.Start.Enable();
     }
+
 
     void OnDisable()
     {
@@ -33,6 +37,8 @@ public class ControlsHandler : MonoBehaviour
 
         controls.Player.Jump.performed -= JumpPerformed;
         controls.Player.Jump.Disable();
+        controls.UI.Start.performed -= StartPerformed;
+        controls.UI.Start.Disable();
     }
 
     private void JumpPerformed(InputAction.CallbackContext obj)
@@ -41,6 +47,11 @@ public class ControlsHandler : MonoBehaviour
         {
             FindObjectOfType<PlayerMovement>().JumpInput();
         }
+    }
+
+    private void StartPerformed(InputAction.CallbackContext obj)
+    {
+        StatePanel.instance.EndGame();
     }
 
     void Update()

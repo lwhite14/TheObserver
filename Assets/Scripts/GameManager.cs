@@ -32,6 +32,11 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(sceneToLoad);
     }
 
+    public void EndGame() 
+    {
+        Application.Quit();
+    }
+
     void CursorMode()
     {
         if (Cursor.lockState != CursorLockMode.Locked)

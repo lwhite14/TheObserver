@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public static bool canMove = true;
+
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
     public float maxSpeed = 5f;
@@ -18,14 +20,11 @@ public class PlayerMovement : MonoBehaviour
     Vector3 move;
     float x = 0;
     float z = 0;
-    Vector3 lastPosition;
-
 
     void Start()
     {
         anim = GetComponentInChildren<Animator>();
         controller = GetComponent<CharacterController>();
-        lastPosition = transform.position;
     }
 
     void Update()
@@ -46,12 +45,15 @@ public class PlayerMovement : MonoBehaviour
 
     void Move()
     {
-        if (CheckGrounded())
+        if (canMove)
         {
-            move = transform.right * x + transform.forward * z;
+            if (CheckGrounded())
+            {
+                move = transform.right * x + transform.forward * z;
+            }
+            move = Vector3.ClampMagnitude(move, 1.0f);
+            controller.Move(move * maxSpeed * Time.deltaTime);
         }
-        move = Vector3.ClampMagnitude(move, 1.0f);
-        controller.Move(move * maxSpeed * Time.deltaTime);
     }
 
     void Fall()
@@ -62,7 +64,10 @@ public class PlayerMovement : MonoBehaviour
 
     public void JumpInput()
     {
-        Jump();
+        if (canMove)
+        {
+            Jump();
+        }
     }
 
     void Jump()

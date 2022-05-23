@@ -34,4 +34,15 @@ public class StatePanel : MonoBehaviour
     {
         GameManager.instance.Restart();
     }
+
+    public void EndGame() 
+    {
+        PlayerMovement.canMove = false;
+        anim.Play("EndGame");
+    }
+
+    public void ManagerEndGame() 
+    {
+        GameManager.instance.EndGame();
+    }
 }
