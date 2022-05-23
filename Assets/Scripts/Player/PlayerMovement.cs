@@ -6,21 +6,26 @@ public class PlayerMovement : MonoBehaviour
 {
     public float gravity = -9.81f;
     public float jumpHeight = 3f;
-    public float speed = 5f;
+    public float maxSpeed = 5f;
     public float movementSliding = 4f;
     public Transform groundCheck;
     public float groundDistance;
     public LayerMask groundMask;
 
+    Animator anim;
     CharacterController controller;
     Vector3 velocity;
     Vector3 move;
     float x = 0;
     float z = 0;
+    Vector3 lastPosition;
+
 
     void Start()
     {
+        anim = GetComponentInChildren<Animator>();
         controller = GetComponent<CharacterController>();
+        lastPosition = transform.position;
     }
 
     void Update()
@@ -28,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
         Ground();
         Move();
         Fall();
+        Animations();
     }
 
     void Ground()
@@ -45,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
             move = transform.right * x + transform.forward * z;
         }
         move = Vector3.ClampMagnitude(move, 1.0f);
-        controller.Move(move * speed * Time.deltaTime);
+        controller.Move(move * maxSpeed * Time.deltaTime);
     }
 
     void Fall()
@@ -64,7 +70,14 @@ public class PlayerMovement : MonoBehaviour
         if (CheckGrounded())
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            anim.Play("Jump");
         }
+    }
+
+    void Animations() 
+    {
+        anim.SetFloat("x", x);
+        anim.SetFloat("z", z);
     }
 
     public bool CheckGrounded()
