@@ -51,7 +51,10 @@ public class ControlsHandler : MonoBehaviour
 
     private void StartPerformed(InputAction.CallbackContext obj)
     {
-        StatePanel.instance.EndGame();
+        if (!Application.isEditor)
+        {
+            StatePanel.instance.EndGame();
+        }
     }
 
     void Update()
