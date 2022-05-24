@@ -24,6 +24,8 @@ public class ControlsHandler : MonoBehaviour
 
         controls.Player.Jump.performed += JumpPerformed;
         controls.Player.Jump.Enable();
+        controls.Player.EquipedFunction.performed += EquipedFunctionPerformed;
+        controls.Player.EquipedFunction.Enable();
         controls.UI.Start.performed += StartPerformed;
         controls.UI.Start.Enable();
     }
@@ -37,6 +39,8 @@ public class ControlsHandler : MonoBehaviour
 
         controls.Player.Jump.performed -= JumpPerformed;
         controls.Player.Jump.Disable();
+        controls.Player.EquipedFunction.performed -= EquipedFunctionPerformed;
+        controls.Player.EquipedFunction.Disable();
         controls.UI.Start.performed -= StartPerformed;
         controls.UI.Start.Disable();
     }
@@ -54,6 +58,14 @@ public class ControlsHandler : MonoBehaviour
         if (!Application.isEditor)
         {
             StatePanel.instance.EndGame();
+        }
+    }    
+    
+    private void EquipedFunctionPerformed(InputAction.CallbackContext obj)
+    {
+        if (FindObjectOfType<Viewmodel>() != null) 
+        {
+            FindObjectOfType<Viewmodel>().TurnOnOff();
         }
     }
 

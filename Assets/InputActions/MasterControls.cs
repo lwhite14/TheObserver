@@ -49,6 +49,14 @@ public class @MasterControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""EquipedFunction"",
+                    ""type"": ""Button"",
+                    ""id"": ""8f6ab660-4775-4221-a88b-1c3f0b3e9d02"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -227,6 +235,17 @@ public class @MasterControls : IInputActionCollection, IDisposable
                     ""action"": ""Move_Laterally"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c3fe877f-f871-49ba-9b78-9efb896abfaf"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard+Mouse"",
+                    ""action"": ""EquipedFunction"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -294,6 +313,7 @@ public class @MasterControls : IInputActionCollection, IDisposable
         m_Player_Move_ForwardBackward = m_Player.FindAction("Move_ForwardBackward", throwIfNotFound: true);
         m_Player_Move_Laterally = m_Player.FindAction("Move_Laterally", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+        m_Player_EquipedFunction = m_Player.FindAction("EquipedFunction", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Start = m_UI.FindAction("Start", throwIfNotFound: true);
@@ -350,6 +370,7 @@ public class @MasterControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Move_ForwardBackward;
     private readonly InputAction m_Player_Move_Laterally;
     private readonly InputAction m_Player_Jump;
+    private readonly InputAction m_Player_EquipedFunction;
     public struct PlayerActions
     {
         private @MasterControls m_Wrapper;
@@ -358,6 +379,7 @@ public class @MasterControls : IInputActionCollection, IDisposable
         public InputAction @Move_ForwardBackward => m_Wrapper.m_Player_Move_ForwardBackward;
         public InputAction @Move_Laterally => m_Wrapper.m_Player_Move_Laterally;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
+        public InputAction @EquipedFunction => m_Wrapper.m_Player_EquipedFunction;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -379,6 +401,9 @@ public class @MasterControls : IInputActionCollection, IDisposable
                 @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                @EquipedFunction.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEquipedFunction;
+                @EquipedFunction.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEquipedFunction;
+                @EquipedFunction.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEquipedFunction;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -395,6 +420,9 @@ public class @MasterControls : IInputActionCollection, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @EquipedFunction.started += instance.OnEquipedFunction;
+                @EquipedFunction.performed += instance.OnEquipedFunction;
+                @EquipedFunction.canceled += instance.OnEquipedFunction;
             }
         }
     }
@@ -456,6 +484,7 @@ public class @MasterControls : IInputActionCollection, IDisposable
         void OnMove_ForwardBackward(InputAction.CallbackContext context);
         void OnMove_Laterally(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnEquipedFunction(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

@@ -36,6 +36,14 @@
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "EquipedFunction",
+                    "type": "Button",
+                    "id": "8f6ab660-4775-4221-a88b-1c3f0b3e9d02",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -214,6 +222,17 @@
                     "action": "Move_Laterally",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "c3fe877f-f871-49ba-9b78-9efb896abfaf",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard+Mouse",
+                    "action": "EquipedFunction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

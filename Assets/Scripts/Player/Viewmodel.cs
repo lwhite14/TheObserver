@@ -8,6 +8,7 @@ public class Viewmodel : MonoBehaviour
 
     public float smoothing = 5.0f;
     public GameObject GFX;
+    public GameObject lights;
 
     Transform targetPositional;
     Transform targetRotational;
@@ -44,6 +45,18 @@ public class Viewmodel : MonoBehaviour
     public void Disappear() 
     {
         GFX.SetActive(false);
+    }
+
+    public void TurnOnOff() 
+    {
+        if (lights.activeSelf)
+        {
+            lights.SetActive(false);
+        }
+        else 
+        {
+            lights.SetActive(true);
+        }
     }
 }
 
