@@ -24,8 +24,8 @@ public class ControlsHandler : MonoBehaviour
 
         controls.Player.Jump.performed += JumpPerformed;
         controls.Player.Jump.Enable();
-        controls.Player.EquipedFunction.performed += EquipedFunctionPerformed;
-        controls.Player.EquipedFunction.Enable();
+        controls.Player.WeaponPrimaryAction.performed += EquipedFunctionPerformed;
+        controls.Player.WeaponPrimaryAction.Enable();
         controls.UI.Start.performed += StartPerformed;
         controls.UI.Start.Enable();
     }
@@ -39,8 +39,8 @@ public class ControlsHandler : MonoBehaviour
 
         controls.Player.Jump.performed -= JumpPerformed;
         controls.Player.Jump.Disable();
-        controls.Player.EquipedFunction.performed -= EquipedFunctionPerformed;
-        controls.Player.EquipedFunction.Disable();
+        controls.Player.WeaponPrimaryAction.performed -= EquipedFunctionPerformed;
+        controls.Player.WeaponPrimaryAction.Disable();
         controls.UI.Start.performed -= StartPerformed;
         controls.UI.Start.Disable();
     }
