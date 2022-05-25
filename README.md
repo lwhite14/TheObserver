@@ -8,7 +8,7 @@ Follow the below instructions to get started with the source code:
  - Unzip Source Code.
  - Open Project in the Unity Editor.
 
-![image](https://user-images.githubusercontent.com/55700734/169862919-ec843a36-a3a4-47bb-93a1-e55a1ea47627.png)
-![image](https://user-images.githubusercontent.com/55700734/169863018-e64562c2-df9f-4a83-9eb1-1cdd2797a13e.png)
+![image](https://user-images.githubusercontent.com/55700734/170339978-c847b266-fb13-4378-9cde-5afa3a40eea7.png)
+![image](https://user-images.githubusercontent.com/55700734/170339605-867aa0ae-d396-48bd-97b7-6eedfd9323bd.png)
 
 Made by Luke White!
