@@ -698,7 +698,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &265433464
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1890,7 +1890,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh95184
+  m_Name: pb_Mesh37056
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3335,6 +3335,10 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 0.7
       objectReference: {fileID: 0}
+    - target: {fileID: 2016311718, guid: cc76e75a8c7e2274da8e4ba0a0130c86, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 30059306bbe244a4b95a7da87bd03897, type: 2}
     - target: {fileID: 2016311720, guid: cc76e75a8c7e2274da8e4ba0a0130c86, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.1179262

@@ -71,7 +71,7 @@ class TVJumpScare : MonoBehaviour
         Viewmodel.instance.Appear();
 
         // Open Next Area
-
+        StartCoroutine(EndGame());
 
         // Destroy Self
         Destroy(playerTrigger);
@@ -84,5 +84,12 @@ class TVJumpScare : MonoBehaviour
         Destroy(tempOverlay);
         trigger.AfterEvent();
         yield return null;
+    }
+
+    IEnumerator EndGame() 
+    {
+        yield return new WaitForSeconds(8.0f);
+        StatePanel.instance.Restart();
+        yield return null;  
     }
 }
