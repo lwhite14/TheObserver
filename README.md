@@ -1,4 +1,4 @@
-# Unnamed Horror Game
+# The Observer
 A first-person horror game developed using the Unity Engine and C#. Currently in early development, this game aims to provide an atmospheric experience and lots of scares for players. It uses a retro aesthetic to give it a found footage appearance. 
 
 ## Getting Started
