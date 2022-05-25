@@ -3335,10 +3335,6 @@ PrefabInstance:
       propertyPath: m_Intensity
       value: 0.7
       objectReference: {fileID: 0}
-    - target: {fileID: 2016311718, guid: cc76e75a8c7e2274da8e4ba0a0130c86, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 30059306bbe244a4b95a7da87bd03897, type: 2}
     - target: {fileID: 2016311720, guid: cc76e75a8c7e2274da8e4ba0a0130c86, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.1179262
