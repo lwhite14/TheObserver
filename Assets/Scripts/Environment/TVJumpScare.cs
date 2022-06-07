@@ -54,7 +54,6 @@ class TVJumpScare : MonoBehaviour
     public void JumpScare(Trigger trigger)
     {
         Instantiate(sound);
-        Viewmodel.instance.Disappear();
         StartCoroutine(DisplayOverlay(trigger));
     }
 
@@ -67,9 +66,6 @@ class TVJumpScare : MonoBehaviour
         // Change TV
         tvMeshRenderer.material = staticMaterial;
 
-        // Set Viewmodel
-        Viewmodel.instance.Appear();
-
         // Open Next Area
         StartCoroutine(EndGame());
 
@@ -79,7 +75,7 @@ class TVJumpScare : MonoBehaviour
 
     IEnumerator DisplayOverlay(Trigger trigger) 
     {
-        GameObject tempOverlay = Instantiate(overlay, GameObject.Find("CanvasWorld").transform) as GameObject;
+        GameObject tempOverlay = Instantiate(overlay, GameObject.Find("JumpscareTarget").transform) as GameObject;
         yield return new WaitForSeconds(overlayTime);
         Destroy(tempOverlay);
         trigger.AfterEvent();
