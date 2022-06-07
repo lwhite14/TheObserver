@@ -1602,8 +1602,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   smoothing: 100
-  GFX: {fileID: 7638794871531886432}
   lights: {fileID: 2606151698894323245}
+  click: {fileID: 5317188223165743863, guid: b8c6fd75a51a75e4086bac8a50aadfb6, type: 3}
 --- !u!1 &8504623633167902585
 GameObject:
   m_ObjectHideFlags: 0

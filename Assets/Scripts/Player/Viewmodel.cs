@@ -7,8 +7,8 @@ public class Viewmodel : MonoBehaviour
     public static Viewmodel instance = null;
 
     public float smoothing = 5.0f;
-    public GameObject GFX;
     public GameObject lights;
+    public GameObject click;
 
     Transform targetPositional;
     Transform targetRotational;
@@ -37,16 +37,6 @@ public class Viewmodel : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotational.rotation, smoothing * Time.deltaTime);
     }
 
-    public void Appear() 
-    {
-        GFX.SetActive(true);
-    }
-
-    public void Disappear() 
-    {
-        GFX.SetActive(false);
-    }
-
     public void TurnOnOff() 
     {
         if (lights.activeSelf)
@@ -57,6 +47,7 @@ public class Viewmodel : MonoBehaviour
         {
             lights.SetActive(true);
         }
+        Instantiate(click, transform.position, Quaternion.identity);
     }
 }
 
