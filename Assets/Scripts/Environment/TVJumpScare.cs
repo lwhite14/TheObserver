@@ -12,6 +12,7 @@ class TVJumpScare : MonoBehaviour
     public GameObject lensFlare;
     public GameObject pointLight;
     public GameObject playerTrigger;
+    public GameObject carObj;
 
     [Header("Distance To Appear")]
     public float appearDistance = 20.0f;
@@ -67,7 +68,7 @@ class TVJumpScare : MonoBehaviour
         tvMeshRenderer.material = staticMaterial;
 
         // Open Next Area
-        StartCoroutine(EndGame());
+        Destroy(carObj);
 
         // Destroy Self
         Destroy(playerTrigger);
@@ -80,12 +81,5 @@ class TVJumpScare : MonoBehaviour
         Destroy(tempOverlay);
         trigger.AfterEvent();
         yield return null;
-    }
-
-    IEnumerator EndGame() 
-    {
-        yield return new WaitForSeconds(8.0f);
-        StatePanel.instance.Restart();
-        yield return null;  
     }
 }
