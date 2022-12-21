@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Car
-  m_Shader: {fileID: -6465566751694194690, guid: 2b3b7d0b179748b449e12721ea4fcfa6, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 74f5da458c3f3f843b7199b23cd7454a, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -19,6 +19,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - MainTex:
+        m_Texture: {fileID: 2800000, guid: a643b5d633b12824eb74bcb8f19dc595, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - Texture2D_4450AB74:
         m_Texture: {fileID: 2800000, guid: a643b5d633b12824eb74bcb8f19dc595, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -88,11 +92,13 @@ Material:
     - Boolean_85059BBE: 1
     - Boolean_8BBF99CD: 1
     - Boolean_D258FF8E: 1
+    - ColourPrecision: 11
     - Vector1_21C41D02: 256
     - Vector1_6F288C5B: 0.5
     - Vector1_B2CC132F: 16
     - Vector1_B9994903: 11
     - Vector1_E8746023: 16
+    - VertexResolution: 20
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -123,6 +129,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - Color_2E5415DE: {r: 0, g: 0, b: 0, a: 1}
+    - SkyColour: {r: 0.13333334, g: 0.13333334, b: 0.13333334, a: 1}
     - Vector2_8044833E: {r: 1, g: 1, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
